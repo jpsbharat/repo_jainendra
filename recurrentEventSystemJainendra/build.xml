@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project name="RecurrentEventSystem_Jainendra" default="makeJar" basedir=".">
+	<property name="classes.dir" value="bin" />
+	<property name="src.dir" value="src" />
+	<property name="jar.name" value="recurrentEventSystemJainendra.jar" />
+	<target name="clean">
+		<delete>
+			<fileset dir=".">
+				<include name="${classes.dir}/**" />
+				<include name="${jar.name}" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="init" depends="clean">
+		<tstamp></tstamp>
+	</target>
+
+	<target name="compile" depends="init">
+		<tstamp></tstamp>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true">
+		</javac>
+	</target>
+
+	<target name="makeJar" depends="compile">
+		<jar destfile="${jar.name}" basedir="${classes.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="com.jainendra.test.Test" />
+			</manifest>
+		</jar>
+	</target>
+</project>

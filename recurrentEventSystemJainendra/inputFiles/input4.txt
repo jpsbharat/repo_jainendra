@@ -1,0 +1,5 @@
+2019-04-01
+5
+F:\sahaj\RecurrentEventSystem_Jainendra\outputFiles\output.txt
+Every Tuesday and Thursday is team catch-up|W:1#TUE,THU|
+Every alternate Wednesday our sprint ends|W:2#WED|

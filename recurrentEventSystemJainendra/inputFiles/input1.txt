@@ -1,0 +1,8 @@
+2019-04-01
+5
+F:\sahaj\RecurrentEventSystem_Jainendra\outputFiles\output.txt
+School reunion|N#2019:12:02|
+Sprint ends on alternate wednesday|W:2#WED|
+Weekly team catch-up|W:1#TUE,THU|
+Periodic credit card bill payment|O:1#M:10:2|
+Quarterly meeting|O:1#Q:5|

@@ -1,0 +1,6 @@
+2019-04-01
+5
+F:\sahaj\RecurrentEventSystem_Jainendra\outputFiles\output.txt
+Every second Saturday of the month is a holiday|M:1#SAT:2|
+Every third Saturday and monday of the month are holidays|M:1#SAT,MON:3|S:2019-03-31#E:2020-05-25
+My anual meeting|Y:1#04:MON,TUE:1,3|

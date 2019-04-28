@@ -1,0 +1,216 @@
+###########################################################
+#################Executetion of Event<Every second Saturday is a holiday> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-13
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-13, 2019-05-11, 2019-06-08, 2019-07-13, 2019-08-10]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-13, 2019-05-11, 2019-06-08, 2019-07-13, 2019-08-10]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Every second Saturday is a holiday> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Every second Saturday is a holiday> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<Remind me to pay my phone bill on the 10th of every month> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-10
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-10, 2019-05-10, 2019-06-10, 2019-07-10, 2019-08-10]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-10, 2019-05-10, 2019-06-10, 2019-07-10, 2019-08-10]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Remind me to pay my phone bill on the 10th of every month> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Remind me to pay my phone bill on the 10th of every month> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<2nd Sep is my anniversary> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-02
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-09-02, 2020-09-02, 2021-09-02, 2022-09-02, 2023-09-02]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-09-02, 2020-09-02, 2021-09-02, 2022-09-02, 2023-09-02]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<2nd Sep is my anniversary> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<2nd Sep is my anniversary> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<Every Tuesday and Thursday is team catch-up> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-02
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-02, 2019-04-04, 2019-04-09, 2019-04-11, 2019-04-16, 2019-04-18, 2019-04-23, 2019-04-25, 2019-04-30, 2019-05-02]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-02, 2019-04-04, 2019-04-09, 2019-04-11, 2019-04-16, 2019-04-18, 2019-04-23, 2019-04-25, 2019-04-30, 2019-05-02]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Every Tuesday and Thursday is team catch-up> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Every Tuesday and Thursday is team catch-up> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<Every 1st and 3rd Sunday, I need to visit the hospital> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-07
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-07, 2019-04-21, 2019-05-05, 2019-05-19, 2019-06-02, 2019-06-16, 2019-07-07, 2019-07-21, 2019-08-04, 2019-08-18]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-07, 2019-04-21, 2019-05-05, 2019-05-19, 2019-06-02, 2019-06-16, 2019-07-07, 2019-07-21, 2019-08-04, 2019-08-18]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Every 1st and 3rd Sunday, I need to visit the hospital> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Every 1st and 3rd Sunday, I need to visit the hospital> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<Every alternate Wednesday our sprint ends> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-03
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-03, 2019-04-17, 2019-05-01, 2019-05-15, 2019-05-29]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-03, 2019-04-17, 2019-05-01, 2019-05-15, 2019-05-29]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Every alternate Wednesday our sprint ends> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Every alternate Wednesday our sprint ends> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<Once in 2 months, on the 10th I need to pay my credit card bill> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-10
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-01, 2019-06-01, 2019-08-01, 2019-10-01, 2019-12-01]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-10, 2019-06-10, 2019-08-10, 2019-10-10, 2019-12-10]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Once in 2 months, on the 10th I need to pay my credit card bill> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Once in 2 months, on the 10th I need to pay my credit card bill> ends #################
+###########################################################
+
+
+###########################################################
+#################Executetion of Event<Once in every quarter, 5th we have shareholders’ meeting.> starts #################
+###########################################################
+
+Execution result of Schedule.startDate()
+Event starts at 2019-04-05
+
+Execution result of Schedule.endDate()
+Event ends at +999999999-12-31
+
+Execution result of Schedule.getOccurrencesFrom(LocalDate startDate, int numberOfOccurences): from 2019-04-01
+[2019-04-01, 2019-07-01, 2019-10-01, 2020-01-01, 2020-04-01]
+
+Execution result of Schedule.getOccurrencesFrom(int limitNumberOfOccurences): from Today
+[2019-04-05, 2019-07-05, 2019-10-05, 2020-01-05, 2020-04-05]
+
+Execution result of Schedule.getAllOccurrences() >> null represents unbounded result
+null
+
+Execution result of Schedule.getNumberOfOccurences()
+Event<Once in every quarter, 5th we have shareholders’ meeting.> happens 2147483647 times
+
+###########################################################
+#################Executetion of Event<Once in every quarter, 5th we have shareholders’ meeting.> ends #################
+###########################################################
+
+
