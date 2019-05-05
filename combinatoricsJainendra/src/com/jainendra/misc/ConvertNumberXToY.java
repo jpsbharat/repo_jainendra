@@ -10,12 +10,12 @@ public class ConvertNumberXToY {
 	public static StepResult getMinOperationToConvertNumberX2NumberY(int x, int y) {
 		List<String> stepList = new ArrayList<String>();
 		Map<Integer, StepResult> cacheTopDownDP = new HashMap<Integer, StepResult>();
-		StepResult stepResult = convertSource2Target1(x, y, 0, stepList,
+		StepResult stepResult = convertSource2Target(x, y, 0, stepList,
 				cacheTopDownDP);
 		return stepResult;
 	}
 
-	public static StepResult convertSource2Target1(int source, int target,
+	private static StepResult convertSource2Target(int source, int target,
 			int currCount, List<String> stepList,
 			Map<Integer, StepResult> cacheTopDownDP) {
 		if (cacheTopDownDP.containsKey(source)) {
@@ -62,11 +62,11 @@ public class ConvertNumberXToY {
 		int nextSource2 = (source - 1) * 2;
 		stepList.add(source + " - 1 = " + (source - 1) + System.lineSeparator()
 				+ (source - 1) + " * 2 = " + nextSource2);
-		StepResult temp1 = convertSource2Target1((source - 1) * 2, target,
+		StepResult temp1 = convertSource2Target((source - 1) * 2, target,
 				currCount + 2, stepList, cacheTopDownDP);
 		stepList.remove(stepList.size() - 1);
 		stepList.add(source + " * 2 = " + nextSource1);
-		StepResult temp2 = convertSource2Target1(source * 2, target,
+		StepResult temp2 = convertSource2Target(source * 2, target,
 				currCount + 1, stepList, cacheTopDownDP);
 		stepList.remove(stepList.size() - 1);
 		if (temp1 != null && temp2 != null) {
