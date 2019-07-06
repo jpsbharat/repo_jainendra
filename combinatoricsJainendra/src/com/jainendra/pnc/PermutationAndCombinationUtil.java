@@ -4,16 +4,45 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 
 public class PermutationAndCombinationUtil {
 
-	public static <T> Set<List<T>> getAllCombinationOfGivenSize(List<T> inputList, int k) {
+	public static <T> List<List<T>> getAllCombinationsOfMultipleList(List<List<T>> input) {
+		List<List<T>> result = new ArrayList<>();
+		pupulateCombinationsOfMultipleList(input, result, 0, new Stack<T>(),
+				input.size());
+		return result;
+	}
+
+	private static <T> void pupulateCombinationsOfMultipleList(
+			List<List<T>> input, List<List<T>> result, int listIndex,
+			Stack<T> current, int k) {
+		if (current.size() == k) {
+			result.add(new ArrayList<T>(current));
+			return;
+		}
+
+		if (listIndex < input.size()) {
+			List<T> currentCollection = input.get(listIndex);
+			for (T element : currentCollection) {
+				current.push(element);
+				pupulateCombinationsOfMultipleList(input, result,
+						listIndex + 1, current, k);
+				current.pop();
+			}
+		}
+	}
+
+	public static <T> Set<List<T>> getAllCombinationOfGivenSize(
+			List<T> inputList, int k) {
 		Set<List<T>> subsetsOfInputList = new LinkedHashSet<List<T>>();
 		List<T> outputList = new ArrayList<T>(k);
 		for (int i = 0; i < k; i++) {
 			outputList.add(null);
 		}
-		getAllCombinationOfGivenSize0(inputList, k, 0, 0, outputList, subsetsOfInputList);
+		getAllCombinationOfGivenSize0(inputList, k, 0, 0, outputList,
+				subsetsOfInputList);
 		return subsetsOfInputList;
 	}
 
@@ -31,7 +60,8 @@ public class PermutationAndCombinationUtil {
 
 		for (int i = startIndex; i < inputList.size(); i++) {
 			outputList.set(currentIndex, inputList.get(i));
-			getAllCombinationOfGivenSize0(inputList, givenSize, currentIndex + 1, i + 1, outputList, subsetsOfInputList);
+			getAllCombinationOfGivenSize0(inputList, givenSize,
+					currentIndex + 1, i + 1, outputList, subsetsOfInputList);
 		}
 	}
 
@@ -45,7 +75,7 @@ public class PermutationAndCombinationUtil {
 		return result;
 	}
 
-	public int getAllSubArraySum(List<Integer> inputList) {
+	public static int getAllSubArraySum(List<Integer> inputList) {
 		int n = inputList.size();
 		int totalSum = 0;
 		for (int i = 0; i < n; i++) {
@@ -118,7 +148,6 @@ public class PermutationAndCombinationUtil {
 		List<T> outputList = new ArrayList<>();
 		getPowerSet0(subsetsOfInputList, inputList, outputList, 0);
 		subsetsOfInputList.add(outputList);
-
 		return subsetsOfInputList;
 	}
 
