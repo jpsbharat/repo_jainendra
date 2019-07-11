@@ -1,7 +1,9 @@
 package com.jainendra.graph.operation.search.path;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 import com.jainendra.graph.Graph;
@@ -16,21 +18,21 @@ public class PathSearchUtil<T> {
 		this.graph = graph;
 	}
 
-	public List<List<NodeBase<T>>> getAllPaths(T source, T destination) {
+	public List<List<NodeBase<T>>> getAllPathsDFSRecur(T source, T destination) {
 		NodeBase<T> sourceNode = this.graph.getNodeMap().get(source);
 		NodeBase<T> destinationNode = this.graph.getNodeMap().get(destination);
 		List<List<NodeBase<T>>> paths = new ArrayList<List<NodeBase<T>>>();
-		getAllPaths(sourceNode, destinationNode, paths);
+		getAllPathsDFSRecur(sourceNode, destinationNode, paths);
 		return paths;
 	}
 
-	private void getAllPaths(NodeBase<T> sourceNode,
+	private void getAllPathsDFSRecur(NodeBase<T> sourceNode,
 			NodeBase<T> destinationNode, List<List<NodeBase<T>>> paths) {
 		Stack<NodeBase<T>> path = new Stack<NodeBase<T>>();
-		getAllPaths0(sourceNode, destinationNode, path, paths);
+		getAllPathsDFSRecur0(sourceNode, destinationNode, path, paths);
 	}
 
-	private void getAllPaths0(NodeBase<T> sourceNode,
+	private void getAllPathsDFSRecur0(NodeBase<T> sourceNode,
 			NodeBase<T> destinationNode, Stack<NodeBase<T>> curPath,
 			List<List<NodeBase<T>>> paths) {
 		curPath.push(sourceNode);
@@ -43,13 +45,83 @@ public class PathSearchUtil<T> {
 		if (!sourceNode.getSuccessors().isEmpty()) {
 			for (Edge<T> edge : sourceNode.getSuccessors()) {
 				if (!edge.getDestinationNode().isVisited()) {
-					getAllPaths0(edge.getDestinationNode(), destinationNode,
-							curPath, paths);
+					getAllPathsDFSRecur0(edge.getDestinationNode(),
+							destinationNode, curPath, paths);
 				}
 			}
 		}
 
 		sourceNode.setStatus(NodeBase.STATUS.UN_VISITED);
 		curPath.pop();
+	}
+
+	public List<List<NodeBase<T>>> getAllPathsDFSIter(T source, T destination) {
+		NodeBase<T> sourceNode = this.graph.getNodeMap().get(source);
+		NodeBase<T> destinationNode = this.graph.getNodeMap().get(destination);
+		List<List<NodeBase<T>>> paths = new ArrayList<List<NodeBase<T>>>();
+		getAllPathsDFSIter(sourceNode, destinationNode, paths);
+		return paths;
+	}
+
+	private void getAllPathsDFSIter(NodeBase<T> sourceNode,
+			NodeBase<T> destinationNode, List<List<NodeBase<T>>> paths) {
+		Stack<List<NodeBase<T>>> pathsOnStack = new Stack<>();
+		List<NodeBase<T>> path = new ArrayList<>();
+		path.add(sourceNode);
+		pathsOnStack.push(path);
+		NodeBase<T> currNode = null;
+		while (!pathsOnStack.empty()) {
+			path = pathsOnStack.pop();
+			currNode = path.get(path.size() - 1);
+			if (currNode == destinationNode) {
+				paths.add(path);
+				continue;
+			}
+
+			if (!currNode.getSuccessors().isEmpty()) {
+				for (Edge<T> edge : currNode.getSuccessors()) {
+					if (!path.contains(edge.getDestinationNode())) {
+						List<NodeBase<T>> tempPath = new ArrayList<>(path);
+						tempPath.add(edge.getDestinationNode());
+						pathsOnStack.push(tempPath);
+					}
+				}
+			}
+		}
+	}
+
+	public List<List<NodeBase<T>>> getAllPathsBFSIter(T source, T destination) {
+		NodeBase<T> sourceNode = this.graph.getNodeMap().get(source);
+		NodeBase<T> destinationNode = this.graph.getNodeMap().get(destination);
+		List<List<NodeBase<T>>> paths = new ArrayList<List<NodeBase<T>>>();
+		getAllPathsBFSIter(sourceNode, destinationNode, paths);
+		return paths;
+	}
+
+	private void getAllPathsBFSIter(NodeBase<T> sourceNode,
+			NodeBase<T> destinationNode, List<List<NodeBase<T>>> paths) {
+		Queue<List<NodeBase<T>>> pathsOnQueue = new LinkedList<>();
+		List<NodeBase<T>> path = new ArrayList<>();
+		path.add(sourceNode);
+		pathsOnQueue.offer(path);
+		NodeBase<T> currNode = null;
+		while (!pathsOnQueue.isEmpty()) {
+			path = pathsOnQueue.poll();
+			currNode = path.get(path.size() - 1);
+			if (currNode == destinationNode) {
+				paths.add(path);
+				continue;
+			}
+
+			if (!currNode.getSuccessors().isEmpty()) {
+				for (Edge<T> edge : currNode.getSuccessors()) {
+					if (!path.contains(edge.getDestinationNode())) {
+						List<NodeBase<T>> tempPath = new ArrayList<>(path);
+						tempPath.add(edge.getDestinationNode());
+						pathsOnQueue.offer(tempPath);
+					}
+				}
+			}
+		}
 	}
 }

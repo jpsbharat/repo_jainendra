@@ -21,13 +21,18 @@ public class DFSUtil<T> {
 	private Map<String, EdgeDFSTree<T>> edgesMap = new LinkedHashMap<String, EdgeDFSTree<T>>();
 
 	public DFSUtil(Graph<T> graph) {
-		for(Entry<T, NodeBase<T>> entry : graph.getNodeMap().entrySet()){
-			NodeDFSTree<T> treeNode = createTreeNode(entry.getKey(), entry.getValue());
+		for (Entry<T, NodeBase<T>> entry : graph.getNodeMap().entrySet()) {
+			NodeDFSTree<T> treeNode = createTreeNode(entry.getKey(),
+					entry.getValue());
 			this.treeNodeMap.put(entry.getKey(), treeNode);
-			for(Edge<T> edge : entry.getValue().getSuccessors()){
-				NodeDFSTree<T> source = createTreeNode(edge.getSourceNode().getData(), edge.getSourceNode());
-				NodeDFSTree<T> destination = createTreeNode(edge.getDestinationNode().getData(), edge.getDestinationNode());
-				EdgeDFSTree<T> successor = new EdgeDFSTree<T>(source, destination, edge.getWeight());
+			for (Edge<T> edge : entry.getValue().getSuccessors()) {
+				NodeDFSTree<T> source = createTreeNode(edge.getSourceNode()
+						.getData(), edge.getSourceNode());
+				NodeDFSTree<T> destination = createTreeNode(edge
+						.getDestinationNode().getData(),
+						edge.getDestinationNode());
+				EdgeDFSTree<T> successor = new EdgeDFSTree<T>(source,
+						destination, edge.getWeight());
 				treeNode.addSuccessor(successor);
 				this.edgesMap.put(successor.getId(), successor);
 			}
@@ -143,6 +148,30 @@ public class DFSUtil<T> {
 			} else if (node.getParent() != null
 					&& child.getLowTime() >= node.getDiscoveryTime()) {
 				result.add(node);
+			}
+		}
+		return result;
+	}
+
+	public Map<DFSTree<T>, List<EdgeDFSTree<T>>> getBridges() {
+		Map<DFSTree<T>, List<EdgeDFSTree<T>>> treeToAPMap = new HashMap<DFSTree<T>, List<EdgeDFSTree<T>>>();
+		DFSForest<T> dfsForest = this.getDFSForest();
+		for (DFSTree<T> tree : dfsForest.getDFSTreeList()) {
+			List<EdgeDFSTree<T>> aps = this.getBridges(tree);
+			treeToAPMap.put(tree, aps);
+		}
+		return treeToAPMap;
+	}
+
+	public List<EdgeDFSTree<T>> getBridges(DFSTree<T> dfsTree) {
+		List<EdgeDFSTree<T>> result = new ArrayList<EdgeDFSTree<T>>();
+		Iterator<EdgeDFSTree<T>> itr = dfsTree.getTreeEdgeIterator();
+		while (itr.hasNext()) {
+			EdgeDFSTree<T> edge = itr.next();
+			NodeDFSTree<T> node = edge.getSourceNodeDFSTree();
+			NodeDFSTree<T> child = edge.getTargetNodeDFSTree();
+			if (child.getLowTime() > node.getDiscoveryTime()) {
+				result.add(edge);
 			}
 		}
 		return result;

@@ -64,7 +64,8 @@ public class DijkstraShortestPathUtil<T> {
 
 	private void relax(NodeDijkstra<T> nodeDijkstra, Edge<T> edge,
 			PriorityQueue<NodeDijkstra<T>> nodeQueue) {
-		NodeDijkstra<T> nodeDijkstraDest = (NodeDijkstra<T>) edge.getDestinationNode();
+		NodeDijkstra<T> nodeDijkstraDest = (NodeDijkstra<T>) edge
+				.getDestinationNode();
 		double weight = edge.getWeight();
 		double distanceThroughNodeDijkstraDest = nodeDijkstra.getMinDistance()
 				+ weight;
